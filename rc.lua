@@ -67,7 +67,7 @@ end
 beautiful.init(awful.util.getdir("config") .. "/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xfce4-terminal"
+terminal = "termite"
 editor = "gvim"
 editor_cmd = editor
 
@@ -213,7 +213,7 @@ local myawesomemenu = {
 }
 
 local mymenu = {
-   { "&Nautilus", "nautilus --no-desktop /home/lilydjwg/tmpfs", '/usr/share/icons/gnome/32x32/apps/system-file-manager.png' },
+   { "&Nautilus", "nautilus --no-desktop /home/xony/tmpfs", '/usr/share/icons/gnome/32x32/apps/system-file-manager.png' },
    { "&Wireshark", "wireshark", '/usr/share/icons/hicolor/32x32/apps/wireshark.png'},
    { "&VirtualBox", "VirtualBox", '/usr/share/icons/hicolor/32x32/mimetypes/virtualbox.png' },
    { "文档查看器 (&E)", "evince", '/usr/share/icons/hicolor/16x16/apps/evince.png' },
@@ -740,7 +740,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Return",
         function ()
             -- Go and find a terminal for me
-            myutil.run_or_raise("xfce4-terminal --role=TempTerm --geometry=80x24+343+180", { role = "TempTerm" })
+            myutil.run_or_raise("termite --role=TempTerm --geometry=80x24+343+180", { role = "TempTerm" })
         end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "q", awesome.quit),
@@ -824,7 +824,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "t", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Shift"   }, "Return",
         function ()
-            awful.util.spawn("xfce4-terminal --role=TempTerm --geometry=80x24+343+180")
+            awful.util.spawn("termite --role=TempTerm --geometry=80x24+343+180")
         end),
 
     -- htop
@@ -833,7 +833,7 @@ globalkeys = awful.util.table.join(
             if client.focus and client.focus.role == 'FullScreenHtop' then
                 awful.client.movetotag(tags[mouse.screen][10], client.focus)
             else
-                myutil.run_or_raise("xfce4-terminal --role=FullScreenHtop -e 'htop'", { role = "FullScreenHtop" })
+                myutil.run_or_raise("termite --role=FullScreenHtop -e 'htop'", { role = "FullScreenHtop" })
             end
         end),
 
